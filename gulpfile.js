@@ -1,4 +1,5 @@
 var gulp = require("gulp"),
+	gutil = require("gulp-util"),
 	plumber = require("gulp-plumber"),
 	fileInclude = require("gulp-file-include"),
 	uglify = require("gulp-uglify"),
@@ -36,19 +37,19 @@ gulp.task("watch", ["default"], function () {
 
 gulp.task("partials", function () {
 	return gulp.src("partials/index.html")
-		.pipe(plumber())
+		.pipe(plumber(errorHandler))
 		.pipe(fileInclude())
 		.pipe(gulp.dest("./"));
 });
 gulp.task("uglify", function () {
 	return gulp.src("app/**/*.js")
-		.pipe(plumber())
+		.pipe(plumber(errorHandler))
 		.pipe(uglify())
 		.pipe(gulp.dest("js/app"));
 });
 gulp.task("less", function () {
 	return gulp.src("less/styles.less")
-		.pipe(plumber())
+		.pipe(plumber(errorHandler))
 		.pipe(less())
 		// .pipe(minifyCss())
 		.pipe(gulp.dest("css"));
@@ -83,3 +84,27 @@ gulp.task("livereload-spawn", function () {
 		gulp.start("live-reload-spawn");
 	});
 });
+
+var errorHandler = function (e) {
+	var plugin, message, log = [];
+
+	if (!(e instanceof gutil.PluginError) && !e.plugin) {
+		plugin = "JavaScript Error";
+	} else {
+		plugin = e.plugin || "Unknown Package";
+	}
+	message = e.message + (e.showStack !== false ? "\n" + e.stack : "");
+
+	log.push("\n===");
+	log.push(plugin + "\n" + message);
+	log.push("===\n");
+
+	// Notify the user
+	gutil.beep();
+	console.log(log.join("\n"));
+
+	if (this.emit) {
+		this.emit("end");
+	}
+	gulp.stop(message);
+}

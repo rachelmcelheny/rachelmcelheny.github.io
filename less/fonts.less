@@ -1,36 +1,31 @@
-.font-size(@size) {
-	font-size: unit(@size, px);
-	@media (max-width: 800px) {
-		font-size: unit(ceil(@size * .75), px);
-	}
-	@media (max-width: 500px) {
-		font-size: unit(ceil(@size * .65), px);
-	}
-}
-
 html, body {
 	font-family: "Merriweather Sans";
 	font-weight: 300;
-	.font-size(16);
 	-webkit-font-smoothing: antialiased;
+	background-color: @color-bg;
+	color: @color-text;
 }
 
-h1, h2, h3, h4, h5, h6, .heading {
+h1, h2, h3, h4, h5, h6, .header {
 	font-family: Lora;
+	color: @color-header;
 }
 
-.make-font-sizes() {
-	@sizes: 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 84, 96;
-	.loop(@i: length(@sizes)) when (@i > 0) {
-		@size: extract(@sizes, @i);
-		.font-size-@{size} {
-			.font-size(@size);
-		}
-		.loop((@i - 1));
-	}
-	.loop;
+.font-xl {
+	font-size: 3em;
 }
-.make-font-sizes;
+.font-lg {
+	font-size: 2em;
+}
+.font-md {
+	font-size: 1.25em;
+}
+.font-sm {
+	font-size: 1em;
+}
+.font-xs {
+	font-size: .8em;
+}
 
 .text-left {
 	text-align: left;
@@ -50,7 +45,7 @@ h1, h2, h3, h4, h5, h6, .heading {
 }
 
 a {
-	color: #333;
+	color: @color-link;
 	text-decoration: none;
 	&:hover {
 		color: black;
