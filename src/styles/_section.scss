@@ -1,0 +1,17 @@
+section {
+	padding-bottom: 1rem;
+	border-bottom: 1px solid black;
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	& > .section-heading {
+		display: block;
+		text-transform: uppercase;
+
+		& + .item {
+			border-top: 1px solid black;
+		}
+	}
+}

@@ -1,0 +1,35 @@
+<%
+	let app = htmlWebpackPlugin.files.chunks.app;
+%>
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Binghamton University accounting student interested in international tax." />
+
+	<title>Rachel McElheny</title>
+
+	<link rel="icon" href="./favicon.ico" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:300,300i,600" />
+	<% app.css.forEach((file) => { %>
+	<link rel="stylesheet" href="<%= file %>" />
+	<% }); %>
+</head>
+<body>
+	<div class="container">
+		<%= require('html!./sections/header.html') %>
+
+		<main>
+			<%= require('html!./sections/education.html') %>
+			<%= require('html!./sections/professional-experience.html') %>
+			<%= require('html!./sections/leadership-experience.html') %>
+			<%= require('html!./sections/additional-information.html') %>
+		</main>
+
+		<%= require('html!./sections/footer.html') %>
+	</div>
+
+	<script src="<%= app.entry %>"></script>
+</body>
+</html>

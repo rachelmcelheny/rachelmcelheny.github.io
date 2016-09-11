@@ -1,0 +1,47 @@
+ul.list {
+	display: flex;
+	flex-direction: column;
+
+	&.list-inline {
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		text-align: left;
+
+		& > li {
+			&.list-heading {
+				margin-right: .5em;
+			}
+			&:not(:last-child):not(.list-heading)::after {
+				content: "";
+				margin-left: .25em;
+				margin-right: .25em;
+			}
+		}
+
+		&.list-inline-pipe > li {
+			&:not(:last-child):not(.list-heading)::after {
+				content: "|";
+				margin-left: .5em;
+				margin-right: .5em;
+			}
+		}
+
+		&.list-inline-comma > li {
+			&:not(:last-child):not(.list-heading)::after {
+				content: ",";
+				margin-left: 0;
+			}
+		}
+	}
+
+	&.list-bullet {
+		list-style-type: disc;
+		list-style-position: outside;
+		margin-left: 2rem;
+
+		& > li:not(:first-child) {
+			margin-top: .375rem;
+		}
+	}
+}

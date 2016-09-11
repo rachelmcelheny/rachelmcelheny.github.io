@@ -1,0 +1,15 @@
+header {
+	display: block;
+	text-align: center;
+
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid black;
+
+	.header-name {
+		margin-bottom: 0.25rem;
+	}
+
+	.list {
+		justify-content: center;
+	}
+}

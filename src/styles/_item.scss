@@ -1,0 +1,45 @@
+.item {
+	padding: .375rem 0;
+
+	& > .item-summary, .item-position {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	& > .item-summary {
+		font-weight: 600;
+
+		& > .item-name {
+
+		}
+		& > .item-location {
+
+		}
+	}
+
+	& > .item-position {
+		font-style: italic;
+
+		& > .item-position-title {
+
+		}
+		& > .item-position-duration {
+
+		}
+	}
+
+	& > .item-details {
+		margin-top: .5rem;
+		font-size: .9rem;
+		text-align: justify;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		& > .list-inline > li.list-heading {
+			font-weight: 600;
+		}
+	}
+}

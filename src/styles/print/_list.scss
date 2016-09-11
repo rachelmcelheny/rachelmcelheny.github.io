@@ -1,0 +1,7 @@
+ul.list {
+	&.list-bullet {
+		& > li:not(:first-child) {
+			margin-top: .125rem;
+		}
+	}
+}

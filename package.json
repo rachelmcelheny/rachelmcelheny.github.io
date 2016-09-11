@@ -1,26 +1,43 @@
 {
   "name": "rachelmcelheny.github.io",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.html",
+  "scripts": {
+    "clean": "del-cli dist",
+    "build": "cross-env NODE_ENV=production webpack -p",
+    "dev": "webpack-dev-server --port 8000 --hot --inline --colors"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rachelmcelheny/rachelmcelheny.github.io.git"
+    "url": "git+https://github.com/rachelmcelheny/rachelmcelheny.github.io.git"
   },
-  "author": "Rachel McElheny",
-  "homepage": "https://github.com/rachelmcelheny/rachelmcelheny.github.io",
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rachelmcelheny/rachelmcelheny.github.io/issues"
+  },
+  "homepage": "http://rachelmcelheny.me/",
+  "private": true,
   "devDependencies": {
-    "gulp": "~3.8.8",
-    "gulp-less": "~1.3.6",
-    "gulp-watch": "~1.1.0",
-    "gulp-minify-css": "~0.3.11",
-    "connect": "~3.3.0",
-    "serve-static": "~1.7.0",
-    "gulp-livereload": "~2.1.1",
-    "gulp-plumber": "~0.6.6",
-    "gulp-file-include": "~0.5.1",
-    "gulp-uglify": "~1.0.1",
-    "gulp-util": "~3.0.1"
+    "autoprefixer-loader": "^3.2.0",
+    "cross-env": "^2.0.1",
+    "css-loader": "^0.25.0",
+    "del-cli": "^0.2.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.9.3",
+    "purifycss-webpack-plugin": "^2.0.3",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
   },
-  "private": true
+  "dependencies": {
+    "node-reset-scss": "^1.0.1",
+    "reset.css": "^2.0.2"
+  }
 }
