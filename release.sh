@@ -43,7 +43,7 @@ echo -e "\n\n\nBuilding..."
 npm run build
 cp ../CNAME .
 
-if [ ! -z "$( git status --porcelain )" ]; then
+if [ -z "$( git status --porcelain )" ]; then
 	echo "There's no change. No need to release!"
 	cd ..
 	exit 0
