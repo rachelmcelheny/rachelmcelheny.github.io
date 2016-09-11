@@ -43,6 +43,12 @@ echo -e "\n\n\nBuilding..."
 npm run build
 cp ../CNAME .
 
+if [ ! -z "$( git status --porcelain )" ]; then
+	echo "There's no change. No need to release!"
+	cd ..
+	exit 0
+fi
+
 echo -e "\n\n\nBuilt. Publishing..."
 git add -A .
 git commit -m "Publish site"
