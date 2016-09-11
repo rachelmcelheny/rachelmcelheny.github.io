@@ -21,9 +21,10 @@ fi
 
 git remote update
 if [ ! -z "$( git status --porcelain -uno )" ]; then
-	echo "Not even with remote. Pull it!"
+	echo "Behind remote. Pull it!"
 	exit 1
 fi
+git push
 
 echo "Okay, starting the release!"
 
