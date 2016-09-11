@@ -40,6 +40,7 @@ rm -rf *
 
 echo -e "\n\n\nBuilding..."
 npm run build
+cp ../CNAME .
 
 echo -e "\n\n\nBuilt. Publishing..."
 git add -A .
